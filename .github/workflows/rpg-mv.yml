@@ -38,9 +38,7 @@ jobs:
         run: |
           cd src
           
-          # sh ./gradlew assembleDebug
-          
-          gradle assembleDebug
+          sh ./gradlew assembleDebug
           
       - uses: actions/upload-artifact@v3
         with:
