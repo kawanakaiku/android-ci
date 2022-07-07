@@ -1,6 +1,7 @@
 package com.example.mv_to_mobile_android;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.view.View;
 import android.webkit.WebResourceRequest;
@@ -32,11 +33,14 @@ public class MainActivity extends AppCompatActivity {
         scriptHandler.setHandler(handler);
         scriptHandler.setWebView(webView);
         webView.addJavascriptInterface(scriptHandler, "MVZxAndroidHandlers");
+        
+        File sdcard_dir = new File(Environment.getExternalStorageDirectory());
 
         final WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
                 .addPathHandler("/htmlSource/", new WebViewAssetLoader.AssetsPathHandler(this))
                 .addPathHandler("/assets/", new WebViewAssetLoader.AssetsPathHandler(this))
                 .addPathHandler("/res/", new WebViewAssetLoader.ResourcesPathHandler(this))
+                .addPathHandler("/sdcard/", new InternalStoragePathHandler(context, sdcard_dir))
                 .build();
         webView.setWebViewClient(new WebViewClient() {
             @Override
