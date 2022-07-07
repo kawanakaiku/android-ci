@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             // We don't have permission so prompt the user
             static final int REQUEST_CODE = 1;
             ActivityCompat.requestPermissions(this, new String[]{
-                    READ_EXTERNAL_STORAGE,
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
             }, REQUEST_CODE);
         }
 
