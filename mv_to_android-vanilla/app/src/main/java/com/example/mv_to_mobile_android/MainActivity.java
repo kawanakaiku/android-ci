@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         scriptHandler.setWebView(webView);
         webView.addJavascriptInterface(scriptHandler, "MVZxAndroidHandlers");
         
-        File publicDir = new File(Environment.getExternalStorageDirectory(), "public");
+        File publicDir = new File(Environment.getExternalFilesDir(null) + "/public/");
 
         final WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
                 .addPathHandler("/htmlSource/", new WebViewAssetLoader.AssetsPathHandler(this))
