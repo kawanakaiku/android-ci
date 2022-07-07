@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 .addPathHandler("/htmlSource/", new WebViewAssetLoader.AssetsPathHandler(this))
                 .addPathHandler("/assets/", new WebViewAssetLoader.AssetsPathHandler(this))
                 .addPathHandler("/res/", new WebViewAssetLoader.ResourcesPathHandler(this))
-                .addPathHandler("/public/", new InternalStoragePathHandler(context, publicDir))
+                .addPathHandler("/public/", new WebViewAssetLoader.InternalStoragePathHandler(this, publicDir))
                 .build();
         webView.setWebViewClient(new WebViewClient() {
             @Override
