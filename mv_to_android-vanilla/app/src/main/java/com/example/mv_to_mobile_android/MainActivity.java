@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private void hideNavigationBar() {
         // Hide both the navigation bar and the status bar.
         View decoView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_IMMERSIVE | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        int uiOptions = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY | View.SYSTEM_UI_FLAG_IMMERSIVE | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
         decoView.setSystemUiVisibility(uiOptions);
     }
 }
