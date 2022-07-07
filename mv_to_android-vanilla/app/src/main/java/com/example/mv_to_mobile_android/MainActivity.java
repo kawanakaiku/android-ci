@@ -36,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
         scriptHandler.setWebView(webView);
         webView.addJavascriptInterface(scriptHandler, "MVZxAndroidHandlers");
         
-        File sdcard_dir = new File(Environment.getExternalStorageDirectory());
+        File publicDir = new File(Environment.getExternalStorageDirectory(), "public");
 
         final WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
                 .addPathHandler("/htmlSource/", new WebViewAssetLoader.AssetsPathHandler(this))
                 .addPathHandler("/assets/", new WebViewAssetLoader.AssetsPathHandler(this))
                 .addPathHandler("/res/", new WebViewAssetLoader.ResourcesPathHandler(this))
-                .addPathHandler("/sdcard/", new InternalStoragePathHandler(context, sdcard_dir))
+                .addPathHandler("/public/", new InternalStoragePathHandler(context, publicDir))
                 .build();
         webView.setWebViewClient(new WebViewClient() {
             @Override
