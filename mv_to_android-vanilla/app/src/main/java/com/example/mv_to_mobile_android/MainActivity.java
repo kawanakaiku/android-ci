@@ -21,6 +21,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        int permission = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            static final int REQUEST_CODE = 1;
+            ActivityCompat.requestPermissions(this, new String[]{
+                    READ_EXTERNAL_STORAGE,
+            }, REQUEST_CODE);
+        }
 
         hideNavigationBar();
 
