@@ -11,6 +11,10 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
+        <!-- ignore display cutout -->
+        <item name="android:windowLayoutInDisplayCutoutMode">
+          shortEdges <!-- default, shortEdges, never -->
+        </item>
     </style>
 
 </resources>
