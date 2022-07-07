@@ -32,7 +32,7 @@ jobs:
       - name: build
         run: |
           cd src
-          ./gradlew assembleDebug
+          sh ./gradlew assembleDebug
           
       - uses: actions/upload-artifact@v3
         with:
