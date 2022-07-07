@@ -26,18 +26,12 @@ jobs:
       # Runs a single command using the runners shell
       - name: clone
         run: |
-          # git clone --depth=1 https://github.com/waffs702/mv_to_android.git src
-          
-          wget -nv https://github.com/waffs702/mv_to_android/archive/vanilla.zip -O tmp.zip
-          unzip -q tmp.zip
           mv mv_to_android-vanilla src
-          rm tmp.zip
 
       # Runs a set of commands using the runners shell
       - name: build
         run: |
           cd src
-          
           sh ./gradlew assembleDebug
           
       - uses: actions/upload-artifact@v3
